@@ -50,6 +50,25 @@ exports.uploadDetails = async (req, res) => {
     }
 }
 
+exports.getUserDetails  =async(req,res)=>{
+    try{
+       
+        const data = await UserModel.find()
+        res.status(200).json({
+            success: true,
+            
+            message: "video file uploaded successfully",
+            data: data
+        })
+    }catch(error){
+        console.error(err)
+        res.status(400).json({
+            success: false,
+            message: "Error while getting details "+err
+        })
+    }
+}
+
 
 const isFileTypeSupported=(fileType, supportedTypes)=> {
     return supportedTypes.includes(fileType);
