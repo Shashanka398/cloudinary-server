@@ -6,6 +6,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const fileUpload = require("express-fileupload");
 const {uploadDetails,getUserDetails} =  require("./controller/userController")
+const router = express.Router();
 dotenv.config();
 
 // Middleware
@@ -26,7 +27,7 @@ app.use("/api/v1", userRoutes);
 
 // Test route (this can be accessed at /api/)
 app.get("/",getUserDetails );
-app.post("/upload",uploadDetails)
+router.post("/upload",uploadDetails)
 
 // Connect to Cloudinary and database
 const cloudinary = require("./config/cloudinary");
