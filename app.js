@@ -25,7 +25,7 @@ const userRoutes = require('./route/route');
 console.log("Entered backend");
 app.use("/api/v1", userRoutes);
 
-
+//routed not recognized by vercel
 app.get("/",getUserDetails );
 
 router.post("/upload",uploadDetails)
