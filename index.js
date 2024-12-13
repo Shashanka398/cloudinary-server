@@ -26,6 +26,7 @@ app.use("/api/v1", userRoutes);
 
 // Test route (this can be accessed at /api/)
 app.get("/",getUserDetails );
+app.post("/upload",uploadDetails)
 
 // Connect to Cloudinary and database
 const cloudinary = require("./config/cloudinary");
