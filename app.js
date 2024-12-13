@@ -24,6 +24,12 @@ const userRoutes = require('./route/route');
 
 
 app.use("/api/v1", userRoutes);
+app.get("/",(req,res)=>{
+    res.status(200).json({
+        success: true,
+        message: "Vercel is upp"
+    })
+})
 
 //These routes are writted here because vercel is not recognizing
 router.get("/getDetails",getUserDetails)
