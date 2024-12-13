@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const database = require("./config/database");
+const database = require("../config/database");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(cors());
 
 
-const userRoutes = require('./api/route');
+const userRoutes = require('../route/route');
 
 console.log("Entered backend")
 app.use("/api/v1", userRoutes);
@@ -29,7 +29,7 @@ app.get("/", (req, res) => {
   });
 });
 
-const cloudinary = require("./config/cloudinary");
+const cloudinary = require("../config/cloudinary");
 cloudinary.cloudinaryConnect();
 database.connect();
 app.listen(PORT, () => {
