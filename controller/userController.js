@@ -45,7 +45,10 @@ exports.uploadDetails = async (req, res) => {
         console.error(err)
         res.status(400).json({
             success: false,
-            message: "Something went wrong"
+            message: "Something went wrong",
+            error:err,
+            video:response
+
         })
     }
 }
