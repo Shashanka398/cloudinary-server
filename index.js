@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const fileUpload = require("express-fileupload");
+const {uploadDetails,getUserDetails} =  require("./controller/userController")
 dotenv.config();
 
 // Middleware
@@ -24,12 +25,7 @@ console.log("Entered backend");
 app.use("/api/v1", userRoutes);
 
 // Test route (this can be accessed at /api/)
-app.get("/", (req, res) => {
-  return res.json({
-    success: true,
-    message: 'Your server is up and running....'
-  });
-});
+app.get("/",getUserDetails );
 
 // Connect to Cloudinary and database
 const cloudinary = require("./config/cloudinary");
