@@ -16,7 +16,7 @@ app.use(cookieParser());
 app.use(cors());
 
 
-const userRoutes = require('./route/route');
+const userRoutes = require('./api/route');
 
 console.log("Entered backend")
 app.use("/api/v1", userRoutes);
