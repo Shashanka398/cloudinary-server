@@ -27,6 +27,7 @@ app.use("/api/v1", userRoutes);
 
 
 app.get("/",getUserDetails );
+
 router.post("/upload",uploadDetails)
 
 
