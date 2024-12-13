@@ -11,7 +11,7 @@ exports.uploadDetails = async (req, res) => {
         console.log(name, description, email);
 
         if(!url){
-            const videoFile = req.files.displayPicture;
+            const videoFile = req.files.video;
             const supportedTypes = ["mp4", "mov"];
             const fileType = videoFile.name.split(".")[1].toLowerCase();
     
