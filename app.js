@@ -5,9 +5,8 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const fileUpload = require("express-fileupload");
-const router = express.Router();
 const {uploadDetails,getUserDetails} =  require("./controller/userController")
-
+const router = express.Router();
 dotenv.config();
 
 
@@ -22,24 +21,17 @@ app.use(cors());
 
 const userRoutes = require('./route/route');
 
-
+// Routes
+console.log("Entered backend");
 app.use("/api/v1", userRoutes);
-app.get("/",(req,res)=>{
-    res.status(200).json({
-        success: true,
-        message: "Vercel is upp"
-    })
-})
 
-//These routes are writted here because vercel is not recognizing
-router.get("/getDetails",getUserDetails)
 
-router.post("/upload",uploadDetails);
+app.get("/",getUserDetails );
+router.post("/upload",uploadDetails)
 
 
 const cloudinary = require("./config/cloudinary");
 cloudinary.cloudinaryConnect();
 database.connect();
-
 
 module.exports = app;
